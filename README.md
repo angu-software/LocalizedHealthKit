@@ -1,7 +1,7 @@
 # LocalizedHealthKit
 
 Swift package to provide localizations for `HealthKit` entities.
-Most and foremost for the `HKWorkoutActivityType`
+Most and foremost for the `HKWorkoutActivityType`.
 
 ## Features
 
@@ -9,11 +9,12 @@ Localized names for `HKWorkoutActivityType`
 
 ```swift
     let germanLocale = Locale(identifier: "de-DE")
+    let localizer = Localizer(locale: germanLocale)
     
     let activityType: HKWorkoutActivityType = .running
-    let displayName = activityType.name // "Running"
+    let displayName = localizer.name(for: activityType) // "Running"
 
-    let germanName = activityType.localizedName(locale: germanLocale) // "Laufen"
+    let germanName = localizer.localizedName(for: activityType) // "Laufen"
 ```
 
 ## Supported Languages
