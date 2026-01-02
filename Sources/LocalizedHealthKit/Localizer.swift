@@ -141,9 +141,18 @@ public struct Localizer {
         let resource = LocalizedStringResource(.init(name),
                                                table: nil,
                                                locale: locale,
-                                               bundle: .module,
+                                               bundle: .localizedHealthKit,
                                                comment: nil)
 
         return String(localized: resource)
+    }
+}
+
+private final class BundleFinder {}
+
+extension Bundle {
+
+    static var localizedHealthKit: Bundle {
+        return Bundle(for: BundleFinder.self)
     }
 }
